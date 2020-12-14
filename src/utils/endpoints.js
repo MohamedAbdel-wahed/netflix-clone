@@ -7,6 +7,5 @@ export const requests= {
      action:`discover/movie?api_key=${key}&with_genres=28`,
      comedy:`discover/movie?api_key=${key}&with_genres=35`,
      horror:`discover/movie?api_key=${key}&with_genres=27`,
-     romance:`discover/movie?api_key=${key}&with_genres=10749`,
-     documentaries:`discover/movie?api_key=${key}&with_genres=10749`
+     romance:`discover/movie?api_key=${key}&with_genres=10749`
 }

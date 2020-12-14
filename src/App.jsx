@@ -8,11 +8,11 @@ import {requests} from './utils/endpoints'
 
 function App() {
 
-  const [loading,setLoading]= useState(false);
+  const [loading,setLoading]= useState(true);
 
-  // useEffect(()=>{
-  //   window.onload= ()=> setLoading(false)
-  // },[loading])
+  useEffect(()=>{
+    window.onload= ()=> setLoading(false)
+  },[loading])
 
   return (
       <div className="App">

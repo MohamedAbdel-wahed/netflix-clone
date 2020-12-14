@@ -27,18 +27,17 @@ function MoviesRow({title,fetchUrl,isBackDrop}) {
     }
   }
 
-  const getTrailerUrl= (movie)=>{
+    const getTrailerUrl= (movie)=>{
       if(trailerUrl){
         setTrailerUrl("")
-      }
-      console.log(movie)
-      movieTrailer(movie?.title || movie?.name || movie?.original_name || "")
-      .then(url=>{
-        const query= new URL(url).search
-        const params= new URLSearchParams(query)
-        setTrailerUrl(params.get('v'))
-      }).catch(err=> console.log(err))
-  }
+      }else{
+         movieTrailer(movie?.title)
+        .then((url)=>{
+          const urlParams= new URLSearchParams(new URL(url).search)
+           setTrailerUrl(urlParams.get('v'))
+        }).catch(err=> console.log(err))
+    }
+ }
 
   return (
     <div className="movies__row my-6 py-1 select-none"> 
@@ -47,12 +46,12 @@ function MoviesRow({title,fetchUrl,isBackDrop}) {
           <div className="flex mx-5 pt-2 pb-3">
               {movies && movies.map((movie)=>
                 (<img
-                      onClick={()=> getTrailerUrl(movie)}
-                      key={movie.id} 
-                      src={`${img_baseUrl}${isBackDrop ? movie.backdrop_path : movie.poster_path }`}
-                      className={`${movie.isBackDrop ? 'h-40 sm:h-72 hover:scale-110 p-2 sm:p-4':'h-72 hover:scale-105 p-3'} w-full  mr-0.5 sm:object-contain hover:shadow-sm rounded-sm cursor-pointer transform scale-100 transition-all duration-300 ease-out`}
-                      alt={`${movie?.name || title}`}
-                    />)
+                    onClick={()=> movie.title ? getTrailerUrl(movie) : null}
+                    key={movie.id} 
+                    src={`${img_baseUrl}${isBackDrop ? movie.backdrop_path : movie.poster_path }`}
+                    className={`${movie.isBackDrop ? 'h-40 sm:h-72 hover:scale-110 p-2 sm:p-4':'h-72 hover:scale-105 p-3'} w-full  mr-0.5 sm:object-contain hover:shadow-sm rounded-sm cursor-pointer transform scale-100 transition-all duration-300 ease-out`}
+                    alt={`${movie?.name || title}`}
+                  />)
                 )}
           </div>   
        </div>
