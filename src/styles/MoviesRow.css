@@ -1,0 +1,30 @@
+.movies__posters {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.movies__posters::-webkit-scrollbar {
+      display: none;
+   }
+
+
+
+@media screen and (min-width: 640px) {
+
+   .movies__posters::-webkit-scrollbar {
+      display: block;
+      height: 5px;
+   }
+
+   .movies__posters::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 10px;
+   }
+
+   .movies__posters::-webkit-scrollbar-thumb {
+      background: #ee2e2edc;
+      border-radius: 10px;
+   }
+
+}
