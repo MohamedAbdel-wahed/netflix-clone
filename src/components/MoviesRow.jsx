@@ -41,15 +41,15 @@ function MoviesRow({title,fetchUrl,isBackDrop}) {
 
   return (
     <div className="movies__row my-6 py-1 select-none"> 
-        <h1 className="text-xl sm:text-3xl font-bold text-white uppercase mx-4 my-2">{title}</h1>
-       <div className="movies__posters">
-          <div className="flex mx-5 pt-2 pb-3">
+        <h1 className="text-xl sm:text-3xl font-bold text-white uppercase mx-4">{title}</h1>
+       <div className="movies__posters py-10">
+          <div className="w-full flex gap-12 px-6">
               {movies && movies.map((movie)=>
                 (<img
                     onClick={()=> movie.title ? getTrailerUrl(movie) : null}
                     key={movie.id} 
                     src={`${img_baseUrl}${isBackDrop ? movie.backdrop_path : movie.poster_path }`}
-                    className={`${movie.isBackDrop ? 'h-40 sm:h-72 hover:scale-110 p-2 sm:p-4':'h-72 hover:scale-105 p-3'} w-full  mr-0.5 sm:object-contain hover:shadow-sm rounded-sm cursor-pointer transform scale-100 transition-all duration-300 ease-out`}
+                    className={`${isBackDrop ? 'w-[33rem]' : 'w-72 h-72'} h-full object-contain hover:shadow-sm rounded-sm cursor-pointer hover:scale-110 transition-all duration-300 ease-out`}
                     alt={`${movie?.name || title}`}
                   />)
                 )}

@@ -16,7 +16,7 @@ function Header() {
  return (
    <div className={`header fixed top-0 w-full h-20 flex items-center justify-between bg-gray-900 ${darkBg?'bg-opacity-100':'bg-opacity-20'} px-6 sm:px-12 z-30 shadow-md`}>
        <div>
-          <img src="/images/netflix-logo.svg" className="w-24 sm:w-32 " alt="logo"/>
+          <img src="/images/logo.svg" className="w-24 sm:w-32 " alt="logo"/>
        </div>
 
       <div className="">

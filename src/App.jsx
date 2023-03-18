@@ -8,7 +8,7 @@ import {requests} from './utils/endpoints'
 
 function App() {
 
-  const [loading,setLoading]= useState(true);
+  const [loading,setLoading]= useState(false);
 
   useEffect(()=>{
     window.onload= ()=> setLoading(false)
